@@ -10,10 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c);
-
 void	ft_print_numbers(void)
 {
 	int	i;
@@ -24,9 +20,4 @@ void	ft_print_numbers(void)
 		ft_putchar(i);
 		i++;
 	}
-}
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
 }
