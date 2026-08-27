@@ -6,7 +6,7 @@
 /*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/26 22:29:38 by tomswb            #+#    #+#             */
-/*   Updated: 2026/08/26 22:44:57 by tomswb           ###   ########.fr       */
+/*   Updated: 2026/08/27 16:24:09 by tomswb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,21 @@ int	ft_iterative_factorial(int nb);
 
 int	main(void)
 {
-	printf("%d", ft_iterative_factorial(13));
+	printf("%d", ft_iterative_factorial(3));
 }
 
-int	ft_iterative_factorial(int n)
+int	ft_iterative_factorial(int nb)
 {
 	int	i;
 	int	res;
 
-	i = 1;
+	i = 0;
 	res = 1;
-	if (n < 0)
+	if (nb < 0 || nb > 12)
 		return (0);
-	while (i <= n)
+	while (i < nb)
 	{
-		if (res > 2147483647 / i)
-			return (0);
-		res = res * i;
+		res = res * (nb - i);
 		i++;
 	}
 	return (res);
