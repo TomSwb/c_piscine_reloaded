@@ -6,7 +6,7 @@
 /*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/26 21:47:22 by tomswb            #+#    #+#             */
-/*   Updated: 2026/08/26 21:57:12 by tomswb           ###   ########.fr       */
+/*   Updated: 2026/08/27 17:05:56 by tomswb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@ void	ft_is_negative(int n)
 	if (n >= 0)
 		ft_putchar('P');
 	else
-	 	ft_putchar('N');
+		ft_putchar('N');
 }
