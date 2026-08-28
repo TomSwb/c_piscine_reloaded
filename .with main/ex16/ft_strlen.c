@@ -1,5 +1,7 @@
 
+#include <string.h>
 #include <stdio.h>
+
 
 int	ft_strlen(char *str);
 
@@ -12,7 +14,7 @@ int	main(int ac, char **av)
 	else
 		return (-1);
 	printf("ft: %d\n", ft_strlen(str));
-	printf("og: %d", strlen(str));
+	printf("og: %zu", strlen(str));
 }
 
 int	ft_strlen(char *str)
@@ -24,5 +26,5 @@ int	ft_strlen(char *str)
 	count = 0;
 	while (str[count])
 		count++;
-	retunr (count);
+	return (count);
 }
