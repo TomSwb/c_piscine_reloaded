@@ -6,7 +6,7 @@
 /*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/28 20:58:06 by tomswb            #+#    #+#             */
-/*   Updated: 2026/08/28 21:29:14 by tomswb           ###   ########.fr       */
+/*   Updated: 2026/08/30 20:42:56 by tomswb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int ac, char **av)
 {
 	int		i;
 	char	*temp;
-	
+
 	if (ac < 2)
 		return (-1);
 	else
@@ -35,7 +35,7 @@ int	main(int ac, char **av)
 			else
 				i++;
 		}
-	};
+	}
 	ft_print_params(av);
 }
 
@@ -49,7 +49,7 @@ int	ft_strcmp(char *s1, char *s2)
 	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
 
-void ft_print_params(char **av)
+void	ft_print_params(char **av)
 {
 	int	i;
 	int	j;
