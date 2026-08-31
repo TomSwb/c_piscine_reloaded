@@ -3,6 +3,8 @@
 #include <unistd.h>
 
 void	ft_foreach(int *tab, int length, void(f*)(int));
+void	ft_putnbr(int n);
+void	ft_putchar(char c);
 
 int	main(void)
 {
@@ -29,16 +31,23 @@ void	ft_putnbr(int n)
 {
 	if (n == INT_MIN)
 	{
-		write(1, -2147483648, 11);
+		ft_putchar(INT_MIN);
 		return ;
 	}
 	if (n < 0)
 	{
+		ft_putchar('-');
 		n = -n;
-		write(1, '-', 1);
 	}
 	if (n >= 10)
-		n = ft_putnbr(n / 10);
-	write(1, &n, 1);
-	return ;
+	{
+		ft_putnbr(n / 10);
+		n = n % 10;
+	}
+	ft_putchar(n + 48);
+}
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
 }
