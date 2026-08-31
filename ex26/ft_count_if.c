@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.h                                           :+:      :+:    :+:   */
+/*   ft_count_if.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/31 14:58:53 by tomswb            #+#    #+#             */
-/*   Updated: 2026/08/31 14:58:56 by tomswb           ###   ########.fr       */
+/*   Created: 2026/08/31 15:22:18 by tomswb            #+#    #+#             */
+/*   Updated: 2026/08/31 15:22:21 by tomswb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ABS_H
-# define FT_ABS_H
+int	ft_count_if(char **tab, int (*f)(char *))
+{
+	int	i;
+	int	count;
 
-# define ABS(Value) Value * ((Value < 0) ? -1 : 1)
-
-#endif
+	i = 0;
+	count = 0;
+	while (tab[i])
+	{
+		if (f(tab[i]) == 1)
+			count++;
+		i++;
+	}
+	return (count);
+}
