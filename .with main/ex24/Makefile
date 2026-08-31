@@ -1,27 +1,35 @@
 
-NAME: libft.a
+NAME = libft.a
 
-SOURCES: sources/ft_puchar.c \
-				sources/ft_putstr.c \
-				sources/ft_strlen.c \
-				sources/ft_strcmp.c \
-				sources/ft_swap.c
+CC = gcc
 
-INCLUDES: includes/libft.h
+CFLAGS = -Wall -Wextra -Werror -I includes
 
-AR: ar -r
+AR = ar -rcs
 
-OBJECTS: 
+RM = rm -f
 
-all: {NAME}
+SOURCES = srcs/ft_puchar.c \
+	srcs/ft_putstr.c \
+	srcs/ft_strlen.c \
+	srcs/ft_strcmp.c \
+	srcs/ft_swap.c
 
-{NAME}: {OBJECTS}
-				{AR} 
+OBJECTS = $(SOURCES:.c=.o)
 
-clean: rm sources/*.o
+%.o: %.c
+	${CC} {CFLAGS} -c $< -o $@
+
+all: ${NAME}
+
+${NAME}: ${OBJECTS}
+	${AR} ${NAME} ${OBJECTS}
+
+clean: 
+	${RM} ${OBJECTS}
 
 fclean: clean
-				rm {NAME}
+	${RM} ${NAME}
 
 re: flcean all
 
