@@ -1,6 +1,6 @@
 NAME = ft_display_file
 
-SOURCES = ./main.c
+SOURCES = ./ft_display_file.c
 
 OBJECTS = $(SOURCES:.c=.o)
 
