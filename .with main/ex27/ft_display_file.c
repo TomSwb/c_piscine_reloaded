@@ -6,7 +6,7 @@
 /*   By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 14:54:04 by tomswb            #+#    #+#             */
-/*   Updated: 2026/08/31 14:54:07 by tomswb           ###   ########.fr       */
+/*   Updated: 2026/09/04 14:59:58 by tomswb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ int  main(int ac, char **av)
   fd = open(av[1], 0);
   if (fd == -1)
     return (ft_err("Cannot read file."), -1);
-  reading = read(fd, &buf, 5120);
+  reading = read(fd, &buf, 4098);
   while (reading > 0)
   {
     write(1, &buf, reading);
-    reading = read(fd, &buf, 5120);
+    reading = read(fd, &buf, 4098);
   }
   if (reading == -1)
   {
