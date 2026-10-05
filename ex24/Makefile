@@ -29,7 +29,7 @@ SOURCES = srcs/ft_puchar.c \
 OBJECTS = $(SOURCES:.c=.o)
 
 %.o: %.c
-	${CC} {CFLAGS} -c $< -o $@
+	${CC} ${CFLAGS} -c $< -o $@
 
 all: ${NAME}
 
@@ -42,6 +42,6 @@ clean:
 fclean: clean
 	${RM} ${NAME}
 
-re: flcean all
+re: fclean all
 
 .PHONY all clean fclean re
