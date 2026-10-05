@@ -20,7 +20,7 @@ AR = ar -rcs
 
 RM = rm -f
 
-SOURCES = srcs/ft_puchar.c \
+SOURCES = srcs/ft_putchar.c \
 	srcs/ft_putstr.c \
 	srcs/ft_strlen.c \
 	srcs/ft_strcmp.c \
@@ -44,4 +44,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY all clean fclean re
+.PHONY: all clean fclean re
