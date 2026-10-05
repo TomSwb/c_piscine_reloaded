@@ -13,41 +13,51 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-void	ft_err(char *s);
+void	ft_err(char *message);
 
-int	main(int ac, char **av)
+int	main(int argc, char **argv)
 {
 	int		fd;
-	char	buf[5120];
-	int		reading;
+	int		bytes_read;
+	char	buffer[4096];
 
-	if (ac < 2)
-		return (ft_err("File is missing."), -1);
-	if (ac > 2)
-		return (ft_err("Too many arguments."), -1);
-	fd = open(av[1], 0);
-	if (fd == -1)
-		return (ft_err("Cannot read file."), -1);
-	reading = read(fd, &buf, 4098);
-	while (reading > 0)
+	if (argc < 2)
 	{
-		write(1, &buf, reading);
-		reading = read(fd, &buf, 4098);
+		ft_err("File name missing.");
+		return (1);
 	}
-	if (reading == -1)
+	if (argc > 2)
 	{
-		close(fd);
-		return (ft_err("Cannot read file."), -1);
+		ft_err("Too many arguments.");
+		return (1);
+	}
+	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
+	{
+		ft_err("Cannot read file.");
+		return (1);
+	}
+	bytes_read = read(fd, buffer, sizeof(buffer));
+	while (bytes_read > 0)
+	{
+		write(1, buffer, bytes_read);
+		bytes_read = read(fd, buffer, sizeof(buffer));
 	}
 	close(fd);
+	if (bytes_read == -1)
+	{
+		ft_err("Cannot read file.");
+		return (1);
+	}
+	return (0);
 }
 
-void	ft_err(char *s)
+void	ft_err(char *message)
 {
-	while (*s)
+	while (*message)
 	{
-		write(2, s, 1);
-		s++;
+		write(2, message, 1);
+		message++;
 	}
 	write(2, "\n", 1);
 }
